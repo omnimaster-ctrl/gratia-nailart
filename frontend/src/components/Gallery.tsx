@@ -29,23 +29,23 @@ export default function Gallery() {
       </h3>
 
       {/* Horizontal scrolling gallery */}
-      <div className="flex gap-4 overflow-x-auto pb-4 snap-x scrollbar-hide">
+      <div className="flex gap-5 overflow-x-auto pb-4 snap-x justify-center flex-wrap md:flex-nowrap">
         {galleryItems.map((item, i) => (
           <div
             key={i}
-            className="relative flex-shrink-0 w-44 md:w-56 aspect-square rounded-2xl overflow-hidden group snap-center"
+            className="flex-shrink-0 w-40 md:w-48 snap-center flex flex-col items-center gap-2"
           >
-            <img
-              src={item.src}
-              alt={item.label}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            {/* Label overlay */}
-            <div className="absolute bottom-0 left-0 right-0 bg-dark-deeper/75 backdrop-blur-sm px-3 py-2">
-              <span className="font-label text-xs text-dark-text font-semibold">
-                {item.label}
-              </span>
+            <div className="w-full aspect-square rounded-2xl overflow-hidden group">
+              <img
+                src={item.src}
+                alt={item.label}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
             </div>
+            {/* Label BELOW image */}
+            <span className="font-label text-xs text-dark-muted italic">
+              {item.label}
+            </span>
           </div>
         ))}
       </div>
