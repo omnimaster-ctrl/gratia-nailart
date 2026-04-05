@@ -18,6 +18,14 @@
   --color-outline: #8a8d7e;
   --color-outline-variant: #b7bba2;
 
+  /* Dark theme colors for the main page */
+  --color-dark-bg: #515942;
+  --color-dark-deeper: #3d4435;
+  --color-dark-text: #e5e4d0;
+  --color-dark-muted: #b7bba2;
+  --color-gold: #cda255;
+  --color-warm-beige: #d6c9b0;
+
   --font-headline: "Noto Serif", serif;
   --font-body: "Manrope", sans-serif;
   --font-label: "Manrope", sans-serif;
@@ -26,15 +34,15 @@
 @layer base {
   body {
     font-family: var(--font-body);
-    background-color: var(--color-background);
-    color: var(--color-on-background);
+    background-color: var(--color-dark-bg);
+    color: var(--color-dark-text);
     min-height: 100dvh;
     margin: 0;
     -webkit-font-smoothing: antialiased;
   }
 
   ::selection {
-    background-color: color-mix(in srgb, var(--color-secondary) 30%, transparent);
+    background-color: color-mix(in srgb, var(--color-gold) 30%, transparent);
   }
 }
 

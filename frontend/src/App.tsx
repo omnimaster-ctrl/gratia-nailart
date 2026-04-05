@@ -1,27 +1,21 @@
 import Nav from './components/Nav'
 import Hero from './components/Hero'
-import Services from './components/Services'
 import Gallery from './components/Gallery'
-import Process from './components/Process'
-import Testimonials from './components/Testimonials'
-import Contact from './components/Contact'
+import CtaBanner from './components/CtaBanner'
+import MasDeGratia from './components/MasDeGratia'
 import Footer from './components/Footer'
-import BottomNav from './components/BottomNav'
 
 export default function App() {
   return (
     <>
       <Nav />
-      <main className="pt-16 pb-24">
+      <main>
         <Hero />
-        <Services />
         <Gallery />
-        <Process />
-        <Testimonials />
-        <Contact />
+        <CtaBanner />
+        <MasDeGratia />
       </main>
       <Footer />
-      <BottomNav />
     </>
   )
 }
