@@ -3,7 +3,7 @@ export default function Footer() {
     <footer className="w-full py-10 px-8 bg-dark-deeper flex flex-col items-center gap-6 text-center">
       {/* Fairy peeking as footer decoration */}
       <img
-        src="/assets/fairy/peeking.jpeg"
+        src="/assets/fairy/peeking.png"
         alt="Hada del Bosque"
         className="w-20 -mt-16 drop-shadow-lg"
       />

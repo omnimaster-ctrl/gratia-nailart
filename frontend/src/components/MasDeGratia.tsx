@@ -1,17 +1,17 @@
 const cards = [
   {
-    image: '/assets/mascot/shopping.jpeg',
+    image: '/assets/mascot/shopping.png',
     title: 'Gratia Nail Shop',
     desc: 'Productos con diseño artesanal de productos.',
   },
   {
-    image: '/assets/fairy/reading.jpeg',
+    image: '/assets/fairy/reading.png',
     title: 'Jardín de las Hadas',
     subtitle: 'Gratia Academy',
     desc: 'Aprende las técnicas de los artistas experimentados.',
   },
   {
-    image: '/assets/fairy/scroll.jpeg',
+    image: '/assets/fairy/scroll.png',
     title: 'Reserva tu cita',
     desc: 'Asegura tu cita por adelanto de los mejores artistas disponibles.',
   },

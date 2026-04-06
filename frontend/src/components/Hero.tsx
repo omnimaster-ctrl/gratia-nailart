@@ -6,12 +6,12 @@ export default function Hero() {
         {/* LEFT — Mascot decorative images */}
         <div className="hidden md:flex flex-col gap-4 items-center">
           <img
-            src="/assets/mascot/artist.jpeg"
+            src="/assets/mascot/artist.png"
             alt="Gratia Nail Art"
             className="w-28 h-28 rounded-2xl object-cover shadow-lg"
           />
           <img
-            src="/assets/mascot/grinning.jpeg"
+            src="/assets/mascot/grinning.png"
             alt="Gratia Nail Art"
             className="w-28 h-28 rounded-2xl object-cover shadow-lg"
           />
@@ -36,7 +36,7 @@ export default function Hero() {
         {/* RIGHT — Fairy mascot */}
         <div className="hidden md:flex justify-center">
           <img
-            src="/assets/fairy/flying.jpeg"
+            src="/assets/fairy/flying.png"
             alt="Hada del Bosque — mascota de Gratia"
             className="w-48 drop-shadow-2xl"
           />
@@ -46,17 +46,17 @@ export default function Hero() {
       {/* Mobile: fairy + mascot below hero text */}
       <div className="flex md:hidden gap-4 mt-10 justify-center items-end">
         <img
-          src="/assets/mascot/artist.jpeg"
+          src="/assets/mascot/artist.png"
           alt="Gratia"
           className="w-16 h-16 rounded-xl object-cover shadow-md"
         />
         <img
-          src="/assets/fairy/flying.jpeg"
+          src="/assets/fairy/flying.png"
           alt="Hada del Bosque"
           className="w-28 drop-shadow-xl"
         />
         <img
-          src="/assets/mascot/grinning.jpeg"
+          src="/assets/mascot/grinning.png"
           alt="Gratia"
           className="w-16 h-16 rounded-xl object-cover shadow-md"
         />
