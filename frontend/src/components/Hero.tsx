@@ -1,20 +1,69 @@
+import { useEffect, useState } from 'react'
+
+const carouselImages = [
+  '/assets/mascot/artist.png',
+  '/assets/fairy/mushroom.png',
+  '/assets/mascot/pointing.png',
+  '/assets/fairy/reading.png',
+  '/assets/mascot/certificate.png',
+  '/assets/fairy/scroll.png',
+  '/assets/mascot/grinning.png',
+  '/assets/mascot/serene.png',
+]
+
 export default function Hero() {
+  const [active, setActive] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => (prev + 1) % carouselImages.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
+
+  // Show 3 images at a time in the carousel
+  const visibleCount = 3
+  const getIndex = (offset: number) =>
+    (active + offset) % carouselImages.length
+
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 pb-16 overflow-hidden bg-dark-bg">
-      {/* 3-column layout: mascot images | text | fairy */}
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-[140px_1fr_200px] items-center gap-6 md:gap-10">
-        {/* LEFT — Mascot decorative images */}
-        <div className="hidden md:flex flex-col gap-4 items-center">
-          <img
-            src="/assets/mascot/artist.png"
-            alt="Gratia Nail Art"
-            className="w-28 h-28 rounded-2xl object-cover shadow-lg"
-          />
-          <img
-            src="/assets/mascot/grinning.png"
-            alt="Gratia Nail Art"
-            className="w-28 h-28 rounded-2xl object-cover shadow-lg"
-          />
+        {/* LEFT — Vertical carousel */}
+        <div className="hidden md:flex flex-col gap-3 items-center h-[360px] overflow-hidden relative">
+          {Array.from({ length: visibleCount }).map((_, offset) => {
+            const idx = getIndex(offset)
+            const isCenter = offset === 1
+            return (
+              <div
+                key={`${active}-${offset}`}
+                className={`w-24 h-24 rounded-2xl overflow-hidden transition-all duration-700 flex-shrink-0 ${
+                  isCenter
+                    ? 'scale-110 shadow-lg opacity-100 ring-2 ring-gold/30'
+                    : 'scale-90 opacity-60'
+                }`}
+              >
+                <img
+                  src={carouselImages[idx]}
+                  alt="Gratia"
+                  className="w-full h-full object-contain bg-dark-deeper/40 rounded-2xl p-1"
+                />
+              </div>
+            )
+          })}
+
+          {/* Dots indicator */}
+          <div className="flex gap-1.5 mt-2">
+            {carouselImages.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                  i === active ? 'bg-gold w-3' : 'bg-dark-muted/40'
+                }`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* CENTER — Main hero content */}
@@ -43,23 +92,16 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Mobile: fairy + mascot below hero text */}
-      <div className="flex md:hidden gap-4 mt-10 justify-center items-end">
-        <img
-          src="/assets/mascot/artist.png"
-          alt="Gratia"
-          className="w-16 h-16 rounded-xl object-cover shadow-md"
-        />
-        <img
-          src="/assets/fairy/flying.png"
-          alt="Hada del Bosque"
-          className="w-28 drop-shadow-xl"
-        />
-        <img
-          src="/assets/mascot/grinning.png"
-          alt="Gratia"
-          className="w-16 h-16 rounded-xl object-cover shadow-md"
-        />
+      {/* Mobile: horizontal carousel below hero */}
+      <div className="flex md:hidden gap-3 mt-10 overflow-x-auto snap-x px-4 pb-2">
+        {carouselImages.slice(0, 5).map((src, i) => (
+          <img
+            key={i}
+            src={src}
+            alt="Gratia"
+            className="w-20 h-20 rounded-xl object-contain bg-dark-deeper/40 p-1 flex-shrink-0 snap-center"
+          />
+        ))}
       </div>
     </section>
   )
