@@ -1,17 +1,17 @@
 const cards = [
   {
-    icon: 'shopping_bag',
+    image: '/assets/mascot/shopping.jpeg',
     title: 'Gratia Nail Shop',
     desc: 'Productos con diseño artesanal de productos.',
   },
   {
-    icon: 'local_florist',
+    image: '/assets/fairy/reading.jpeg',
     title: 'Jardín de las Hadas',
     subtitle: 'Gratia Academy',
     desc: 'Aprende las técnicas de los artistas experimentados.',
   },
   {
-    icon: 'calendar_month',
+    image: '/assets/fairy/scroll.jpeg',
     title: 'Reserva tu cita',
     desc: 'Asegura tu cita por adelanto de los mejores artistas disponibles.',
   },
@@ -28,13 +28,13 @@ export default function MasDeGratia() {
         {cards.map((card, i) => (
           <div
             key={i}
-            className="bg-warm-beige/90 rounded-2xl p-6 flex flex-col items-center text-center gap-4 shadow-[0_4px_16px_rgba(42,46,37,0.12)] hover:shadow-[0_6px_20px_rgba(42,46,37,0.18)] transition-shadow"
+            className="bg-warm-beige/90 rounded-2xl p-6 flex flex-col items-center text-center gap-3 shadow-[0_4px_16px_rgba(42,46,37,0.12)] hover:shadow-[0_6px_20px_rgba(42,46,37,0.18)] transition-shadow"
           >
-            <div className="w-14 h-14 rounded-full bg-dark-bg flex items-center justify-center">
-              <span className="material-symbols-outlined text-gold text-2xl">
-                {card.icon}
-              </span>
-            </div>
+            <img
+              src={card.image}
+              alt={card.title}
+              className="w-28 h-28 object-contain"
+            />
             <h4 className="font-headline text-lg text-dark-deeper font-bold">
               {card.title}
             </h4>
