@@ -54,12 +54,45 @@ export default function Footer() {
 
       <p className="font-body text-sm text-dark-muted">@gratia.nailart</p>
 
-      <div className="flex flex-col gap-1 mt-2">
-        <p className="font-label text-[10px] tracking-widest uppercase text-dark-muted/50">
-          SOFTWARE BY OMNIFRACTAL
-        </p>
-        <p className="font-label text-[10px] tracking-widest uppercase text-dark-muted/30">
-          © 2026 Gratia Nail Art
+      <div className="flex flex-col items-center gap-6 mt-6 pb-2">
+        <a 
+          href="https://omnifractal.dev/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 md:gap-4 group"
+        >
+          <span className="font-label text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.3em] uppercase text-dark-muted/50 group-hover:text-dark-muted transition-colors">
+            SOFTWARE BY
+          </span>
+          
+          <svg 
+            viewBox="0 0 35 22" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-10 h-auto md:w-12 text-gold opacity-70 group-hover:opacity-100 group-hover:drop-shadow-[0_0_12px_rgba(205,162,85,0.8)] transition-all duration-500 transform -rotate-12 group-hover:-rotate-6"
+          >
+            {/* Golden rectangles */}
+            <rect x="0.5" y="0.5" width="34" height="21" stroke="currentColor" strokeWidth="0.5" />
+            <line x1="21.5" y1="0.5" x2="21.5" y2="21.5" stroke="currentColor" strokeWidth="0.5" />
+            <line x1="21.5" y1="13.5" x2="34.5" y2="13.5" stroke="currentColor" strokeWidth="0.5" />
+            <line x1="26.5" y1="13.5" x2="26.5" y2="21.5" stroke="currentColor" strokeWidth="0.5" />
+            <line x1="21.5" y1="16.5" x2="26.5" y2="16.5" stroke="currentColor" strokeWidth="0.5" />
+            
+            {/* Golden spiral sequence */}
+            <path d="M 21.5 0.5 A 21 21 0 0 0 0.5 21.5" stroke="currentColor" strokeWidth="1" />
+            <path d="M 21.5 0.5 A 13 13 0 0 1 34.5 13.5" stroke="currentColor" strokeWidth="1" />
+            <path d="M 34.5 13.5 A 8 8 0 0 1 26.5 21.5" stroke="currentColor" strokeWidth="1" />
+            <path d="M 26.5 21.5 A 5 5 0 0 1 21.5 16.5" stroke="currentColor" strokeWidth="1" />
+            <path d="M 21.5 16.5 A 3 3 0 0 1 24.5 13.5" stroke="currentColor" strokeWidth="1" />
+          </svg>
+
+          <span className="font-label text-sm md:text-base font-bold tracking-[0.15em] md:tracking-widest uppercase text-dark-muted/80 group-hover:text-white transition-colors">
+            OMNIFRACTAL
+          </span>
+        </a>
+
+        <p className="font-label text-[10px] tracking-widest text-dark-muted/40">
+          &copy; {new Date().getFullYear()} Gratia Nail Art. All Rights Reserved.
         </p>
       </div>
     </footer>
