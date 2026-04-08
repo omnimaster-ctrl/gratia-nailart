@@ -248,11 +248,11 @@ export default function Hero() {
                 background: 'radial-gradient(circle, rgba(205,162,85,0.45) 0%, rgba(205,162,85,0.1) 40%, transparent 70%)',
               }}
             />
-            <img
-              src="/assets/fairy/running.png"
-              alt="Hada del Bosque — mascota de Gratia"
-              className="relative w-44 md:w-56 lg:w-64 drop-shadow-[0_8px_32px_rgba(205,162,85,0.3)] animate-float"
-            />
+              <img
+                src="/assets/fairy/fairy_gratia_nobg.png"
+                alt="Hada del Bosque"
+                className="relative w-80 md:w-96 h-auto object-contain drop-shadow-[0_0_25px_rgba(205,162,85,0.3)] animate-float"
+              />
           </div>
         </div>
 
