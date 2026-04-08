@@ -249,7 +249,7 @@ export default function Hero() {
               }}
             />
             <img
-              src="/assets/fairy/flying.png"
+              src="/assets/fairy/running.png"
               alt="Hada del Bosque — mascota de Gratia"
               className="relative w-44 md:w-56 lg:w-64 drop-shadow-[0_8px_32px_rgba(205,162,85,0.3)] animate-float"
             />
