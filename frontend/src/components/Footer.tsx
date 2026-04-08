@@ -1,12 +1,28 @@
 export default function Footer() {
   return (
-    <footer className="w-full py-10 px-8 bg-dark-deeper flex flex-col items-center gap-6 text-center">
-      {/* Fairy peeking as footer decoration */}
-      <img
-        src="/assets/fairy/peeking.png"
-        alt="Hada del Bosque"
-        className="w-20 -mt-16 drop-shadow-lg"
+    <footer className="relative w-full pt-14 pb-10 px-8 bg-dark-deepest flex flex-col items-center gap-6 text-center">
+      {/* Top gradient fade */}
+      <div
+        className="absolute top-0 left-0 right-0 h-16 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to bottom, #3d4435, #2a2e25)',
+        }}
       />
+
+      {/* Fairy peeking as footer decoration */}
+      <div className="relative -mt-20 mb-2">
+        <div
+          className="absolute inset-0 -m-4 rounded-full blur-2xl opacity-25"
+          style={{
+            background: 'radial-gradient(circle, rgba(205,162,85,0.5) 0%, transparent 70%)',
+          }}
+        />
+        <img
+          src="/assets/fairy/peeking.png"
+          alt="Hada del Bosque"
+          className="relative w-24 drop-shadow-lg animate-float-slow"
+        />
+      </div>
 
       {/* Social icons */}
       <div className="flex gap-4">
@@ -14,26 +30,38 @@ export default function Footer() {
           href="https://instagram.com/gratia.nailart"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-10 h-10 rounded-full border border-dark-muted/40 flex items-center justify-center text-dark-muted hover:text-gold hover:border-gold transition-colors"
+          className="w-10 h-10 rounded-full border border-dark-muted/30 flex items-center justify-center text-dark-muted
+            hover:text-gold hover:border-gold hover:bg-gold/10
+            transition-all duration-300"
         >
-          <span className="material-symbols-outlined text-xl">camera</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <circle cx="12" cy="12" r="5" />
+            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+          </svg>
         </a>
         <a
           href="#"
-          className="w-10 h-10 rounded-full border border-dark-muted/40 flex items-center justify-center text-dark-muted hover:text-gold hover:border-gold transition-colors"
+          className="w-10 h-10 rounded-full border border-dark-muted/30 flex items-center justify-center text-dark-muted
+            hover:text-gold hover:border-gold hover:bg-gold/10
+            transition-all duration-300"
         >
-          <span className="material-symbols-outlined text-xl">group</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+          </svg>
         </a>
       </div>
 
       <p className="font-body text-sm text-dark-muted">@gratia.nailart</p>
 
-      <p className="font-label text-[10px] tracking-widest uppercase text-dark-muted/60">
-        SOFTWARE BY OMNIFRACTAL
-      </p>
-      <p className="font-label text-[10px] tracking-widest uppercase text-dark-muted/40">
-        © 2026 Gratia Nail Art
-      </p>
+      <div className="flex flex-col gap-1 mt-2">
+        <p className="font-label text-[10px] tracking-widest uppercase text-dark-muted/50">
+          SOFTWARE BY OMNIFRACTAL
+        </p>
+        <p className="font-label text-[10px] tracking-widest uppercase text-dark-muted/30">
+          © 2026 Gratia Nail Art
+        </p>
+      </div>
     </footer>
   )
 }

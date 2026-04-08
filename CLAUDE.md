@@ -101,6 +101,13 @@ The project uses the **DESIGN.md** format (from [awesome-design-md](https://gith
 - **Hosting:** Railway
 - **Notifications:** WhatsApp (future), Email (Resend)
 
+### Deployment (Railway)
+
+- **Production URL:** https://gratia-nailart-production.up.railway.app/
+- **Deploy method:** Auto-deploy from `main` branch on GitHub (may not always trigger — use `railway redeploy --yes` as fallback)
+- **CLI:** Installed at `/opt/homebrew/bin/railway`, logged in as David Tello
+- **Skill:** Use `railway-deploy` skill for deploy workflows and troubleshooting
+
 ### Domain
 
 Pending — waiting for Hazael to choose (suggested: gratianailart.com, gratianails.mx, or similar)

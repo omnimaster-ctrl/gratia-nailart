@@ -18,12 +18,14 @@
   --color-outline: #8a8d7e;
   --color-outline-variant: #b7bba2;
 
-  /* Dark theme colors for the main page */
+  /* Dark theme colors */
   --color-dark-bg: #515942;
   --color-dark-deeper: #3d4435;
+  --color-dark-deepest: #2a2e25;
   --color-dark-text: #e5e4d0;
   --color-dark-muted: #b7bba2;
   --color-gold: #cda255;
+  --color-gold-dim: #a18b63;
   --color-warm-beige: #d6c9b0;
 
   --font-headline: "Noto Serif", serif;
@@ -31,14 +33,91 @@
   --font-label: "Manrope", sans-serif;
 }
 
+/* ── Keyframe Animations ── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-14px) rotate(1.5deg); }
+  75% { transform: translateY(-6px) rotate(-1deg); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes particle-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-140px) scale(0);
+  }
+}
+
+@keyframes twinkle-flicker {
+  0%, 100% { opacity: 0; }
+  30% { opacity: 0.8; }
+  50% { opacity: 1; }
+  70% { opacity: 0.6; }
+}
+
+@keyframes golden-pulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(205,162,85,0.35); }
+  50% { box-shadow: 0 6px 32px rgba(205,162,85,0.55), 0 0 50px rgba(205,162,85,0.15); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-breathe {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.75; }
+}
+
+@keyframes metallic-sweep {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* ── Base Styles ── */
+
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: var(--font-body);
-    background-color: var(--color-dark-bg);
+    background-color: #2a2e25;
     color: var(--color-dark-text);
     min-height: 100dvh;
     margin: 0;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   ::selection {
@@ -46,7 +125,115 @@
   }
 }
 
-.glass-nav {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+/* ── Component Styles ── */
+
+/* Nav glass effect */
+.nav-glass {
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid rgba(205,162,85,0.1);
+}
+
+/* Metallic gold button */
+.gold-metallic-btn {
+  background: linear-gradient(
+    135deg,
+    #a18b63 0%,
+    #cda255 25%,
+    #e0c07a 40%,
+    #f0d99a 50%,
+    #e0c07a 60%,
+    #cda255 75%,
+    #a18b63 100%
+  );
+  background-size: 300% 100%;
+  animation: metallic-sweep 6s ease-in-out infinite;
+  border: 1px solid rgba(240,217,154,0.3);
+}
+
+.gold-metallic-btn:hover {
+  background-size: 300% 100%;
+}
+
+/* Floating animation utility */
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+/* Glow breathe */
+.animate-glow-breathe {
+  animation: glow-breathe 4s ease-in-out infinite;
+}
+
+/* Fade-in animation utility */
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out both;
+}
+
+/* Golden pulse on buttons */
+.animate-golden-pulse {
+  animation: golden-pulse 3s ease-in-out infinite;
+}
+
+/* Particle dot — rising golden motes */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--color-gold);
+  animation: particle-rise 5s ease-out infinite;
+  pointer-events: none;
+}
+
+/* Twinkle — stationary flickering stars */
+.twinkle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(240,217,154,0.9) 0%, rgba(205,162,85,0.3) 60%, transparent 100%);
+  animation: twinkle-flicker 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Gallery carousel fade edges */
+.carousel-fade-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 6%,
+    black 94%,
+    transparent 100%
+  );
+}
+
+/* Shimmer effect for CTA banner */
+.shimmer-bg {
+  background: linear-gradient(
+    110deg,
+    var(--color-gold) 0%,
+    var(--color-gold) 40%,
+    #d4b06a 50%,
+    var(--color-gold) 60%,
+    var(--color-gold) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+/* No scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
