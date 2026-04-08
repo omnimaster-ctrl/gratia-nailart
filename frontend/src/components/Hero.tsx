@@ -195,7 +195,7 @@ export default function Hero() {
     >
       {/* Forest background image */}
       <div
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 opacity-35 blur-[2px]"
         style={{
           backgroundImage: 'url(/assets/forest-bg.png)',
           backgroundSize: 'cover',
@@ -251,7 +251,7 @@ export default function Hero() {
               <img
                 src="/assets/fairy/fairy_gratia_nobg.png"
                 alt="Hada del Bosque"
-                className="relative w-80 md:w-96 h-auto object-contain drop-shadow-[0_0_25px_rgba(205,162,85,0.3)] animate-float"
+                className="relative w-52 md:w-64 lg:w-72 h-auto object-contain drop-shadow-[0_0_25px_rgba(205,162,85,0.3)] animate-float"
               />
           </div>
         </div>
