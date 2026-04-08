@@ -69,7 +69,8 @@ export default function Footer() {
             viewBox="0 0 35 22" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg"
-            className="w-10 h-auto md:w-12 text-gold opacity-70 group-hover:opacity-100 group-hover:drop-shadow-[0_0_12px_rgba(205,162,85,0.8)] transition-all duration-500 transform -rotate-12 group-hover:-rotate-6"
+            className="w-10 h-auto md:w-12 text-gold opacity-70 group-hover:opacity-100 group-hover:drop-shadow-[0_0_12px_rgba(205,162,85,0.8)] transition-all duration-500"
+            style={{ animation: 'spin 25s linear infinite' }}
           >
             {/* Golden rectangles */}
             <rect x="0.5" y="0.5" width="34" height="21" stroke="currentColor" strokeWidth="0.5" />
