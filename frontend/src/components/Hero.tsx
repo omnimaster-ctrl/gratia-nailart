@@ -204,8 +204,8 @@ export default function Hero() {
         }}
       />
 
-      {/* Dark overlay for readability */}
-      <div className="absolute inset-0 z-0 bg-dark-deepest/30" />
+      {/* Dark overlay for readability - reduced from 30% to 10% to make the forest lighter */}
+      <div className="absolute inset-0 z-0 bg-dark-deepest/5" />
 
       {/* Light rays from top */}
       <div
