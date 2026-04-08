@@ -1,4 +1,5 @@
-const cards = [
+type CardData = { image: string; title: string; subtitle?: string; desc: string }
+const cards: CardData[] = [
   {
     image: '/assets/mascot/shopping.png',
     title: 'Gratia Nail Shop',
@@ -6,8 +7,7 @@ const cards = [
   },
   {
     image: '/assets/fairy/reading.png',
-    title: 'Jardín de las Hadas',
-    subtitle: 'Gratia Academy',
+    title: 'Gratia Academy',
     desc: 'Aprende las técnicas de los artistas experimentados.',
   },
   {
