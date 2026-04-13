@@ -63,7 +63,7 @@ GRATIA_NAILART_TENANT = {
     "schedule": {
         "timezone": "America/Mexico_City",
         "slots_per_day": 2,
-        "min_advance_hours": 48,
+        "min_advance_hours": 24,
         "max_advance_days": 30,
         "working_days": [0, 1, 2, 3, 4, 5],  # Mon-Sat
         "time_blocks": [

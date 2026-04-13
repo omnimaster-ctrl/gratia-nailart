@@ -39,7 +39,7 @@ export const isBusinessDayMX = (d: string) => { const w = DateTime.fromISO(d, { 
 export const isSaturdayMX = (d: string) => DateTime.fromISO(d, { zone: TZ }).set({ hour: 12 }).weekday === 6
 
 export const minSelectableDateMX = () => {
-  let min = DateTime.now().setZone(TZ).plus({ hours: 48 }).startOf('day')
+  let min = DateTime.now().setZone(TZ).plus({ hours: 24 }).startOf('day')
   if (min.weekday === 7) min = min.plus({ days: 1 })
   return min.toISODate()!
 }
