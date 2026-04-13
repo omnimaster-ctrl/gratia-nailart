@@ -61,7 +61,7 @@ export default function Nav() {
 
           {/* CTA pill */}
           <a
-            href="#"
+            href="/booking"
             className="border border-gold/60 text-gold px-4 py-1.5 rounded-full font-label text-sm font-semibold
               hover:bg-gold hover:text-dark-deeper
               transition-all duration-300 whitespace-nowrap"
@@ -88,7 +88,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="#"
+            href="/booking"
             className="mt-4 border-2 border-gold text-gold px-8 py-3 rounded-full font-label text-base font-semibold
               hover:bg-gold hover:text-dark-deeper transition-all"
           >
