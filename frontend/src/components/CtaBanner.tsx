@@ -8,7 +8,7 @@ export default function CtaBanner() {
       <p className="font-body text-lg md:text-xl font-semibold text-dark-deeper relative z-10">
         ¿Te gustó un diseño?{' '}
         <a
-          href="#"
+          href="/booking"
           className="inline-flex items-center gap-2 underline underline-offset-4 decoration-dark-deeper/40 hover:decoration-dark-deeper transition-all duration-300"
         >
           Agenda tu cita

@@ -1,5 +1,5 @@
 """
-La Pop Nails API — Application entry point.
+Gratia Nail Art API — Application entry point.
 Creates the FastAPI app, configures middleware, registers routers, and starts background tasks.
 """
 
@@ -39,13 +39,12 @@ from routes.appointments import router as appointments_router
 from routes.booking import router as booking_router
 from routes.reschedule import router as reschedule_router
 from routes.calendar import router as calendar_router
-from routes.chat import router as chat_router
 
 # =============================================================================
 # APP CREATION
 # =============================================================================
 
-app = FastAPI(title="NailBookPro API")
+app = FastAPI(title="Gratia Nail Art API")
 
 # =============================================================================
 # CORS MIDDLEWARE
@@ -57,16 +56,14 @@ _origins_env = os.environ.get("ALLOWED_ORIGINS", "")
 if _origins_env:
     ALLOWED_ORIGINS = _json.loads(_origins_env)
 else:
-    # Backward-compatible default for La Pop Nails
     ALLOWED_ORIGINS = [
-        "https://lapopnails.mx",
-        "https://www.lapopnails.mx",
-        "https://frontend-popnails-production.up.railway.app",
-        "https://lapopnails-frontend-production.up.railway.app",
+        "https://gratia-nailart-production.up.railway.app",
+        "https://gratianailart.com",
+        "https://www.gratianailart.com",
     ]
 
 if os.environ.get("RAILWAY_ENVIRONMENT", "production") != "production":
-    ALLOWED_ORIGINS += ["http://localhost:3000", "http://localhost:3001"]
+    ALLOWED_ORIGINS += ["http://localhost:3000", "http://localhost:3001", "http://localhost:5173"]
 
 app.add_middleware(
     CORSMiddleware,
@@ -89,7 +86,6 @@ app.include_router(appointments_router)
 app.include_router(booking_router)
 app.include_router(reschedule_router)
 app.include_router(calendar_router)
-app.include_router(chat_router)
 
 # =============================================================================
 # BACKGROUND TASKS
@@ -147,7 +143,7 @@ async def startup():
         await db.appointments.create_index([("tenant_id", 1), ("date", 1), ("status", 1)])
         await db.appointments.create_index([("tenant_id", 1), ("id", 1)], unique=True, sparse=True)
 
-        # W4: Prevent double-booking race condition with unique partial index
+        # Prevent double-booking race condition with unique partial index
         await db.appointments.create_index(
             [("tenant_id", 1), ("date", 1), ("time", 1)],
             unique=True,
@@ -157,35 +153,27 @@ async def startup():
 
         # Booking holds TTL index (auto-delete expired holds)
         await db.booking_holds.create_index("expires_at", expireAfterSeconds=0)
-        # Migrate: drop old per-date index, create per-schedule index
         try:
             await db.booking_holds.drop_index("tenant_id_1_date_1")
         except Exception:
-            pass  # Index may not exist (fresh deploy or already migrated)
+            pass
         await db.booking_holds.create_index(
             [("tenant_id", 1), ("date", 1), ("schedule", 1)],
             unique=True
         )
 
-        # Additional query pattern indexes (S7)
+        # Additional query pattern indexes
         await db.appointments.create_index("phone")
         await db.calendar_events.create_index("appointment_id")
         await db.notifications.create_index([("tenant_id", 1), ("is_read", 1), ("created_at", -1)])
 
-        # Indexes for conversation analytics and client memory
-        await db.ai_chat_history.create_index([("session_id", 1), ("timestamp", 1)])
-        await db.conversation_sessions.create_index([("session_id", 1)], unique=True)
-        await db.conversation_sessions.create_index([("last_message_at", -1)])
-        await db.client_memories.create_index(
-            [("tenant_id", 1), ("phone", 1)], unique=True
-        )
     except Exception as e:
         print(f"Warning: Database initialization issue: {e}")
 
     # Start background expiration monitor
     asyncio.create_task(run_expiration_monitor())
 
-    print("🚀 NailBookPro API started - Multi-tenant mode enabled")
+    print("🚀 Gratia Nail Art API started")
 
 # =============================================================================
 # MAIN

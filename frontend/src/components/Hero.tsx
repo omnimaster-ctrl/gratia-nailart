@@ -289,7 +289,7 @@ export default function Hero() {
         {/* CTA Button — metallic gold */}
         <div className="animate-fade-in-up" style={{ animationDelay: '0.45s' }}>
           <a
-            href="#"
+            href="/booking"
             className="gold-metallic-btn inline-block px-12 md:px-16 py-3.5 md:py-4 rounded-full
               font-label text-sm md:text-base uppercase tracking-[0.2em] font-bold
               text-dark-deepest

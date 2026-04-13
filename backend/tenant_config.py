@@ -12,7 +12,7 @@ from functools import lru_cache
 @lru_cache(maxsize=1)
 def get_tenant_static_config() -> dict:
     """Load and cache the static tenant config from the JSON file."""
-    slug = os.environ.get("DEFAULT_TENANT_SLUG", "lapopnails")
+    slug = os.environ.get("DEFAULT_TENANT_SLUG", "gratianailart")
 
     # Look for config in multiple locations (development vs production)
     search_paths = [

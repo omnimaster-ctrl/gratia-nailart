@@ -1,5 +1,5 @@
 """
-Pydantic request/response models for La Pop Nails API.
+Pydantic request/response models for Gratia Nail Art API.
 Shared across all route modules.
 """
 
@@ -76,15 +76,14 @@ class ChatMessage(BaseModel):
 
 
 class BusinessInfo(BaseModel):
-    name: str = "La Pop Nails"
+    name: str = "Gratia Nail Art"
     services: List[str] = [
-        "Manicura - Mi especialidad es la manicura rusa, una técnica que va mucho más allá de lo tradicional",
-        "Nivelación en uña natural - Esta es una de mis técnicas favoritas porque logra resultados increíbles manteniendo la belleza natural",
-        "Refuerzo en técnica híbrida - Esta técnica es perfecta para mis clientas que tienen uñas frágiles",
-        "Extensión híbrida escultural - Si sueñas con uñas más largas, esta técnica es mi propuesta más artística"
+        "Técnica Mixta - Combinación de técnicas para un resultado único y personalizado",
+        "Nail Art Completo - Diseño artístico completo con las técnicas más avanzadas",
+        "Retoque / Mantenimiento - Mantenimiento y retoque de tu diseño para mantenerlo impecable"
     ]
-    schedule: str = "Lunes a Viernes: 9:00 AM - 12:00 PM y 4:00 PM - 7:00 PM"
-    instagram: str = "@___lapopnails"
+    schedule: str = "Lunes a Viernes: 9:00 AM - 1:00 PM y 4:00 PM - 7:00 PM, Sábado: 10:00 AM - 12:00 PM"
+    instagram: str = "@gratia.nailart"
     contact_method: str = "Instagram Direct Message"
 
 

@@ -1,5 +1,5 @@
 """
-Scheduling helpers for La Pop Nails.
+Scheduling helpers for Gratia Nail Art.
 Pure business logic — date validation, availability, time slot rules.
 No database access.
 """
@@ -166,10 +166,9 @@ def is_business_hours(date_str: str, time_str: str) -> bool:
 def get_service_duration(service_name: str) -> str:
     """Get service duration as formatted string."""
     service_durations = {
-        "Manicura": "1h 15min",
-        "Nivelación en uña natural": "3h – 3h 30min",
-        "Refuerzo en técnica híbrida": "2h – 2h 30min",
-        "Extensión híbrida escultural": "4h – 4h 15min"
+        "Técnica Mixta": "3h",
+        "Nail Art Completo": "4h",
+        "Retoque / Mantenimiento": "2h"
     }
     return service_durations.get(service_name, "Variable")
 
@@ -177,17 +176,16 @@ def get_service_duration(service_name: str) -> str:
 def get_service_price(service_name: str) -> float:
     """Get service price."""
     service_prices = {
-        "Manicura": 450.00,
-        "Nivelación en uña natural": 500.00,
-        "Refuerzo en técnica híbrida": 600.00,
-        "Extensión híbrida escultural": 700.00
+        "Técnica Mixta": 500.00,
+        "Nail Art Completo": 700.00,
+        "Retoque / Mantenimiento": 400.00
     }
     return service_prices.get(service_name, 0.00)
 
 
 def generate_instagram_message(appointment: dict) -> str:
     """Generate Instagram message for appointment confirmation"""
-    return f"""¡Hola {appointment['name']}! Tu cita en La Pop Nails ha sido confirmada ✨
+    return f"""¡Hola {appointment['name']}! Tu cita en Gratia Nail Art ha sido confirmada ✨
 
 📅 Fecha: {appointment['date']}
 🕐 Hora: {appointment['time']}
@@ -199,6 +197,6 @@ def generate_instagram_message(appointment: dict) -> str:
 💰 Anticipo pagado: $250 MXN
 ✅ Estado: Confirmada
 
-¡Te esperamos para crear magia en tus uñas! 💕
+¡Te esperamos para crear arte en tus uñas! 🧚‍♂️✨
 
-- La Pop Nails Team"""
+- Gratia Nail Art"""

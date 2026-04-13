@@ -1,5 +1,5 @@
 """
-Booking creation, holds, payments, and VIP bypass routes for La Pop Nails.
+Booking creation, holds, payments, and VIP bypass routes for Gratia Nail Art.
 """
 
 import os
@@ -220,7 +220,7 @@ async def create_mercadopago_payment(payment_request: PaymentRequest):
             customer_phone=payment_request.appointment_data.phone,
             service_name=payment_request.appointment_data.service,
             amount=anticipo_amount,
-            frontend_url=os.environ.get('FRONTEND_URL', 'https://lapopnails.mx')
+            frontend_url=os.environ.get('FRONTEND_URL', 'https://gratia-nailart-production.up.railway.app')
         )
 
         try:
